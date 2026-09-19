@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="catalog-header">
+  <h1>{{ title }}</h1>
+  <p class="lead">{{ catalog_intro }}</p>
+</section>
+
+<div class="product-grid">
+  {% for product in products %}
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img src="{{ product.image }}" alt="{{ product.name }}">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">{{ product.tag }}</span>
+        <h2>{{ product.name }}</h2>
+        <p class="product-meta">{{ product.color }} · {{ product.size }}</p>
+        <div class="product-footer">
+          <span class="price">{{ product.price_label }}</span>
+          <div class="product-actions">
+            <button type="button" class="btn">Add to Cart</button>
+            <button type="button" class="btn btn-secondary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+{% endblock %}
