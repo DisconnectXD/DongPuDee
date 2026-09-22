@@ -1,21 +1,12 @@
-"""models.py — ★ your one class lives here.
-
-TODO: rename Item to fit your project (Book, Player, Expense, Room, Equipment ...),
-give it the fields you keep in data.json, and one method that does something useful.
-
-A page can turn a row from data.json into an object like this:
-
-    import models
-    item = models.Item(row["name"], row["price"])
-    item.describe()
-"""
+"""models.py — one class for the storefront product model."""
 
 
-class Item:
-    def __init__(self, name, price):
+class Product:
+    def __init__(self, name, price, tag="SAINT SINNER", image=""):
         self.name = name
         self.price = price
+        self.tag = tag
+        self.image = image
 
     def describe(self):
-        # TODO: return a sentence about this item
-        return self.name
+        return f"{self.name} is a {self.tag.lower()} statement piece priced at ฿{self.price}."

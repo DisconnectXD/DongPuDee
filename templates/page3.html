@@ -1,6 +1,55 @@
 {% extends "base.html" %}
-{# templates/page3.html — ★ your page 3. Replace with a page from catalog/ and adapt. #}
 {% block content %}
-<h1>{{ title }}</h1>
-<p>TODO: page 3 content</p>
+<div class="cart-layout">
+  <section class="cart-panel cart-items">
+    <h1>{{ title }}</h1>
+    {% if items %}
+      {% for item in items %}
+        <div class="cart-line">
+          <img src="{{ item.image }}" alt="{{ item.name }}">
+          <div class="cart-line-info">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.tag }} · {{ item.category }}</p>
+            <div class="cart-controls">
+              <form method="post">
+                <input type="hidden" name="action" value="minus">
+                <input type="hidden" name="no" value="{{ loop.index0 }}">
+                <button type="submit">−</button>
+              </form>
+              <span>{{ item.qty }}</span>
+              <form method="post">
+                <input type="hidden" name="action" value="plus">
+                <input type="hidden" name="no" value="{{ loop.index0 }}">
+                <button type="submit">+</button>
+              </form>
+            </div>
+          </div>
+          <div class="cart-line-total">
+            <strong>฿{{ item.price * item.qty }}</strong>
+            <form method="post">
+              <input type="hidden" name="action" value="remove">
+              <input type="hidden" name="no" value="{{ loop.index0 }}">
+              <button class="link-button" type="submit">Remove</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty-box">Your cart is empty.</div>
+    {% endif %}
+  </section>
+
+  <aside class="cart-panel cart-summary">
+    <h2>Summary</h2>
+    <div class="summary-row"><span>Subtotal</span><strong>฿{{ subtotal }}</strong></div>
+    <div class="summary-row"><span>Estimated Shipping</span><strong>฿{{ shipping }}</strong></div>
+    <hr>
+    <div class="summary-row total"><span>Grand Total</span><strong>฿{{ total }}</strong></div>
+    <button class="btn full" type="button">Checkout</button>
+    <form method="post" style="margin-top: 12px;">
+      <input type="hidden" name="action" value="clear">
+      <button class="btn btn-ghost full" type="submit">Clear Cart</button>
+    </form>
+  </aside>
+</div>
 {% endblock %}

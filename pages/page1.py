@@ -1,73 +1,117 @@
-"""pages/page1.py — shirt catalog page."""
+"""pages/page1.py — SAINT SINNER storefront catalog."""
 
-TITLE = "Page 1"
+import storage
+
+TITLE = "Shop"
 
 
-def build():
-    products = [
+def default_products():
+    return [
         {
-            "id": 1,
-            "name": "สินค้าที่ 1",
-            "price": 390,
-            "price_label": "฿390",
-            "color": "Gray",
-            "size": "L",
-            "tag": "Hand-painted",
+            "name": "Midnight Riot Tee",
+            "category": "Tops",
+            "price": 990,
+            "tag": "HAND-PAINTED",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt1.jpg",
+            "picked": False,
+            "qty": 1,
         },
         {
-            "id": 2,
-            "name": "สินค้าที่ 2",
-            "price": 590,
-            "price_label": "฿590",
-            "color": "Black",
-            "size": "L",
-            "tag": "Saint Sinner",
+            "name": "Chrome Reaper Tee",
+            "category": "Tops",
+            "price": 1290,
+            "tag": "SAINT SINNER",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt2.jpg",
+            "picked": False,
+            "qty": 1,
         },
         {
-            "id": 3,
-            "name": "สินค้าที่ 3",
-            "price": 490,
-            "price_label": "฿490",
-            "color": "White",
-            "size": "L",
-            "tag": "Full Pattern",
+            "name": "Satellite Bloom Tee",
+            "category": "Tops",
+            "price": 1150,
+            "tag": "FULL PATTERN",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt3.jpg",
+            "picked": False,
+            "qty": 1,
         },
         {
-            "id": 4,
-            "name": "สินค้าที่ 4",
-            "price": 390,
-            "price_label": "฿390",
-            "color": "Black",
-            "size": "L",
-            "tag": "Skull Detail",
+            "name": "Blackout Ritual Tee",
+            "category": "Tops",
+            "price": 1080,
+            "tag": "LIMITED DROP",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt4.jpg",
+            "picked": False,
+            "qty": 1,
         },
         {
-            "id": 5,
-            "name": "สินค้าที่ 5",
-            "price": 490,
-            "price_label": "฿490",
-            "color": "Gray",
-            "size": "XL",
-            "tag": "Cybersigilism",
+            "name": "Circuit Saint Tee",
+            "category": "Tops",
+            "price": 1190,
+            "tag": "CYBERPUNK",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt5.jpg",
+            "picked": False,
+            "qty": 1,
         },
         {
-            "id": 6,
-            "name": "สินค้าที่ 6",
-            "price": 390,
-            "price_label": "฿390",
-            "color": "White",
-            "size": "XL",
-            "tag": "Handmade",
+            "name": "Gray Static Tee",
+            "category": "Tops",
+            "price": 1010,
+            "tag": "NEW SEASON",
+            "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt6.jpg",
+            "picked": False,
+            "qty": 1,
         },
     ]
 
+
+def build():
+    items = storage.load()
+    if not items:
+        items = default_products()
+        storage.save(items)
+
+    products = []
+    for item in items:
+        if not item.get("sizes"):
+            item["sizes"] = ["S", "M", "L", "XL", "XXL"]
+        if not item.get("image"):
+            item["image"] = "/static/images/shirt1.jpg"
+        item["no"] = len(products)
+        item["price_label"] = "฿" + str(item.get("price", 0))
+        item["short_tag"] = item.get("tag", "SAINT SINNER")
+        products.append(item)
+
     return {
         "products": products,
-        "catalog_intro": "สามารถเลือกซื้อเสื้อยืดลายสวย ๆ ได้ที่นี่",
+        "count": len(products),
+        "hero_title": "SAINT SINNER",
+        "hero_text": "Streetwear for the after-hours crowd.",
     }
+
+
+def handle(form):
+    items = storage.load()
+    action = form.get("action", "")
+    no = form.get("no", "")
+
+    if action not in ("add", "buy") or not no.isdigit():
+        return "กรุณาเลือกสินค้า"
+
+    index = int(no)
+    if index < 0 or index >= len(items):
+        return "ไม่พบสินค้าในคอลเลกชัน"
+
+    item = items[index]
+    item["picked"] = True
+    item["qty"] = max(1, int(item.get("qty", 1)))
+    storage.save(items)
+
+    if action == "buy":
+        return "✅ ใส่ตะกร้าแล้ว พร้อมชำระเงิน"
+    return "✅ เพิ่มสินค้าในตะกร้าแล้ว"
