@@ -2,49 +2,15 @@
 
 import storage
 import models
+from pages import page1
 
 TITLE = "Detail"
-
-
-def default_products():
-    return [
-        {
-            "name": "Midnight Riot Tee",
-            "category": "Tops",
-            "price": 990,
-            "tag": "HAND-PAINTED",
-            "sizes": ["S", "M", "L", "XL", "XXL"],
-            "image": "/static/images/shirt1.jpg",
-            "picked": False,
-            "qty": 1,
-        },
-        {
-            "name": "Chrome Reaper Tee",
-            "category": "Tops",
-            "price": 1290,
-            "tag": "SAINT SINNER",
-            "sizes": ["S", "M", "L", "XL", "XXL"],
-            "image": "/static/images/shirt2.jpg",
-            "picked": False,
-            "qty": 1,
-        },
-        {
-            "name": "Satellite Bloom Tee",
-            "category": "Tops",
-            "price": 1150,
-            "tag": "FULL PATTERN",
-            "sizes": ["S", "M", "L", "XL", "XXL"],
-            "image": "/static/images/shirt3.jpg",
-            "picked": False,
-            "qty": 1,
-        },
-    ]
 
 
 def build(query):
     items = storage.load()
     if not items:
-        items = default_products()
+        items = page1.default_products()
         storage.save(items)
 
     index = 0
@@ -55,11 +21,12 @@ def build(query):
     if index >= len(items):
         index = len(items) - 1
 
+    item_number = 0
+    for item in items:
+        page1.prepare_product(item, item_number)
+        item_number = item_number + 1
+    storage.save(items)
     product = items[index]
-    if not product.get("sizes"):
-        product["sizes"] = ["S", "M", "L", "XL", "XXL"]
-    if not product.get("image"):
-        product["image"] = "/static/images/shirt1.jpg"
 
     thumb_main = product.get("image", "/static/images/shirt1.jpg")
     thumbs = [thumb_main, "/static/images/shirt2.jpg", "/static/images/shirt3.jpg", "/static/images/shirt4.jpg"]

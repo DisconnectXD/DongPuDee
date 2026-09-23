@@ -2,32 +2,115 @@
   {
     "name": "Multimeter",
     "category": "measure",
-    "qty": 12,
-    "price": 850
+    "qty": 1,
+    "price": 850,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 0,
+    "price_label": "฿850",
+    "short_tag": "SAINT SINNER"
   },
   {
     "name": "Oscilloscope",
     "category": "measure",
-    "qty": 4,
-    "price": 25000
+    "qty": 1,
+    "price": 25000,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 1,
+    "price_label": "฿25000",
+    "short_tag": "SAINT SINNER"
   },
   {
     "name": "Arduino Uno",
     "category": "board",
-    "qty": 30,
-    "price": 390
+    "qty": 1,
+    "price": 390,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 2,
+    "price_label": "฿390",
+    "short_tag": "SAINT SINNER"
   },
   {
     "name": "Breadboard",
     "category": "tool",
-    "qty": 40,
+    "qty": 1,
     "price": 60,
-    "picked": true
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 3,
+    "price_label": "฿60",
+    "short_tag": "SAINT SINNER"
   },
   {
     "name": "Soldering iron",
     "category": "tool",
-    "qty": 10,
-    "price": 450
+    "qty": 1,
+    "price": 450,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 4,
+    "price_label": "฿450",
+    "short_tag": "SAINT SINNER"
+  },
+  {
+    "name": "Raspberry Pi 4",
+    "category": "board",
+    "qty": 1,
+    "price": 5500,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "image": "/static/images/shirt1.jpg",
+    "tag": "SAINT SINNER",
+    "picked": false,
+    "no": 5,
+    "price_label": "฿5500",
+    "short_tag": "SAINT SINNER"
   }
 ]

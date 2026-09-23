@@ -10,7 +10,7 @@ def default_products():
         {
             "name": "Midnight Riot Tee",
             "category": "Tops",
-            "price": 990,
+            "price": 390,
             "tag": "HAND-PAINTED",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt1.jpg",
@@ -20,7 +20,7 @@ def default_products():
         {
             "name": "Chrome Reaper Tee",
             "category": "Tops",
-            "price": 1290,
+            "price": 590,
             "tag": "SAINT SINNER",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt2.jpg",
@@ -30,7 +30,7 @@ def default_products():
         {
             "name": "Satellite Bloom Tee",
             "category": "Tops",
-            "price": 1150,
+            "price": 490,
             "tag": "FULL PATTERN",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt3.jpg",
@@ -40,7 +40,7 @@ def default_products():
         {
             "name": "Blackout Ritual Tee",
             "category": "Tops",
-            "price": 1080,
+            "price": 490,
             "tag": "LIMITED DROP",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt4.jpg",
@@ -50,7 +50,7 @@ def default_products():
         {
             "name": "Circuit Saint Tee",
             "category": "Tops",
-            "price": 1190,
+            "price": 490,
             "tag": "CYBERPUNK",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt5.jpg",
@@ -60,7 +60,7 @@ def default_products():
         {
             "name": "Gray Static Tee",
             "category": "Tops",
-            "price": 1010,
+            "price": 390,
             "tag": "NEW SEASON",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt6.jpg",
@@ -70,6 +70,22 @@ def default_products():
     ]
 
 
+def prepare_product(item, index):
+    if not item.get("sizes"):
+        item["sizes"] = ["S", "M", "L", "XL", "XXL"]
+    if not item.get("image"):
+        item["image"] = "/static/images/shirt1.jpg"
+    if not item.get("tag"):
+        item["tag"] = "SAINT SINNER"
+    if "picked" not in item:
+        item["picked"] = False
+    item["qty"] = max(1, int(item.get("qty", 1)))
+    item["no"] = index
+    item["price_label"] = "฿" + str(item.get("price", 0))
+    item["short_tag"] = item.get("tag", "SAINT SINNER")
+    return item
+
+
 def build():
     items = storage.load()
     if not items:
@@ -77,15 +93,12 @@ def build():
         storage.save(items)
 
     products = []
+    index = 0
     for item in items:
-        if not item.get("sizes"):
-            item["sizes"] = ["S", "M", "L", "XL", "XXL"]
-        if not item.get("image"):
-            item["image"] = "/static/images/shirt1.jpg"
-        item["no"] = len(products)
-        item["price_label"] = "฿" + str(item.get("price", 0))
-        item["short_tag"] = item.get("tag", "SAINT SINNER")
-        products.append(item)
+        products.append(prepare_product(item, index))
+        index = index + 1
+
+    storage.save(items)
 
     return {
         "products": products,

@@ -11,7 +11,10 @@ def build():
     count = 0
     subtotal = 0
 
+    index = 0
     for item in items:
+        item["no"] = index
+        index = index + 1
         if item.get("picked", False):
             qty = max(1, int(item.get("qty", 1)))
             item["qty"] = qty

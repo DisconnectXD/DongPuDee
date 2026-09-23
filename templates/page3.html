@@ -13,13 +13,13 @@
             <div class="cart-controls">
               <form method="post">
                 <input type="hidden" name="action" value="minus">
-                <input type="hidden" name="no" value="{{ loop.index0 }}">
+                <input type="hidden" name="no" value="{{ item.no }}">
                 <button type="submit">−</button>
               </form>
               <span>{{ item.qty }}</span>
               <form method="post">
                 <input type="hidden" name="action" value="plus">
-                <input type="hidden" name="no" value="{{ loop.index0 }}">
+                <input type="hidden" name="no" value="{{ item.no }}">
                 <button type="submit">+</button>
               </form>
             </div>
@@ -28,7 +28,7 @@
             <strong>฿{{ item.price * item.qty }}</strong>
             <form method="post">
               <input type="hidden" name="action" value="remove">
-              <input type="hidden" name="no" value="{{ loop.index0 }}">
+              <input type="hidden" name="no" value="{{ item.no }}">
               <button class="link-button" type="submit">Remove</button>
             </form>
           </div>
