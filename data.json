@@ -60,7 +60,7 @@
     "name": "Breadboard",
     "category": "tool",
     "qty": 1,
-    "price": 490,
+    "price": 390,
     "sizes": [
       "S",
       "M",
@@ -72,7 +72,7 @@
     "tag": "SAINT SINNER",
     "picked": false,
     "no": 3,
-    "price_label": "฿490",
+    "price_label": "฿390",
     "short_tag": "SAINT SINNER"
   },
   {
