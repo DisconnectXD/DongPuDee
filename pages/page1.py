@@ -40,7 +40,7 @@ def default_products():
         {
             "name": "Blackout Ritual Tee",
             "category": "Tops",
-            "price": 490,
+            "price": 390,
             "tag": "LIMITED DROP",
             "sizes": ["S", "M", "L", "XL", "XXL"],
             "image": "/static/images/shirt4.jpg",
