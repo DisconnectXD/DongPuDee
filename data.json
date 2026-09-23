@@ -1,7 +1,7 @@
 [
   {
-    "name": "Multimeter",
-    "category": "measure",
+    "name": "GU",
+    "category": "Hoodie",
     "qty": 1,
     "price": 390,
     "sizes": [
@@ -19,8 +19,8 @@
     "short_tag": "SAINT SINNER"
   },
   {
-    "name": "Oscilloscope",
-    "category": "measure",
+    "name": "Uniqlo",
+    "category": "Hoodie",
     "qty": 1,
     "price": 590,
     "sizes": [
@@ -38,8 +38,8 @@
     "short_tag": "SAINT SINNER"
   },
   {
-    "name": "Arduino Uno",
-    "category": "board",
+    "name": "Uniqlo",
+    "category": "Hoodie",
     "qty": 1,
     "price": 490,
     "sizes": [
@@ -57,8 +57,8 @@
     "short_tag": "SAINT SINNER"
   },
   {
-    "name": "Breadboard",
-    "category": "tool",
+    "name": "Skull",
+    "category": "T-Shirt",
     "qty": 1,
     "price": 390,
     "sizes": [
@@ -76,8 +76,8 @@
     "short_tag": "SAINT SINNER"
   },
   {
-    "name": "Soldering iron",
-    "category": "tool",
+    "name": "Uniqlo",
+    "category": "Hoodie",
     "qty": 1,
     "price": 490,
     "sizes": [
@@ -95,8 +95,8 @@
     "short_tag": "SAINT SINNER"
   },
   {
-    "name": "Raspberry Pi 4",
-    "category": "board",
+    "name": "Uniqlo",
+    "category": "Hoodie",
     "qty": 1,
     "price": 390,
     "sizes": [

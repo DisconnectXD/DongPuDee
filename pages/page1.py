@@ -8,8 +8,8 @@ TITLE = "Shop"
 def default_products():
     return [
         {
-            "name": "Midnight Riot Tee",
-            "category": "Tops",
+            "name": "GU",
+            "category": "Hoodie",
             "price": 390,
             "tag": "HAND-PAINTED",
             "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -18,8 +18,8 @@ def default_products():
             "qty": 1,
         },
         {
-            "name": "Chrome Reaper Tee",
-            "category": "Tops",
+            "name": "Uniqlo",
+            "category": "Hoodie",
             "price": 590,
             "tag": "SAINT SINNER",
             "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -28,8 +28,8 @@ def default_products():
             "qty": 1,
         },
         {
-            "name": "Satellite Bloom Tee",
-            "category": "Tops",
+            "name": "Uniqlo",
+            "category": "Hoodie",
             "price": 490,
             "tag": "FULL PATTERN",
             "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -38,8 +38,8 @@ def default_products():
             "qty": 1,
         },
         {
-            "name": "Blackout Ritual Tee",
-            "category": "Tops",
+            "name": "Skull",
+            "category": "T-shirt",
             "price": 390,
             "tag": "LIMITED DROP",
             "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -48,8 +48,8 @@ def default_products():
             "qty": 1,
         },
         {
-            "name": "Circuit Saint Tee",
-            "category": "Tops",
+            "name": "Uniqlo",
+            "category": "Hoodie",
             "price": 490,
             "tag": "CYBERPUNK",
             "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -58,8 +58,8 @@ def default_products():
             "qty": 1,
         },
         {
-            "name": "Gray Static Tee",
-            "category": "Tops",
+            "name": "Uniqlo",
+            "category": "Hoodie",
             "price": 390,
             "tag": "NEW SEASON",
             "sizes": ["S", "M", "L", "XL", "XXL"],
