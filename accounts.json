@@ -1,0 +1,15 @@
+[
+  {
+    "full_name": "สมชาย ใจดี",
+    "email": "somchai@example.com",
+    "password": "123456",
+    "phone": "0812345678",
+    "address": {
+      "street": "123/45",
+      "district": "เมือง",
+      "province": "อุบลราชธานี",
+      "postal_code": "34000"
+    },
+    "created_at": "now"
+  }
+]

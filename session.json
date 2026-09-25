@@ -1,0 +1,11 @@
+{
+  "logged_in": true,
+  "email": "somchai@example.com",
+  "full_name": "สมชาย ใจดี",
+  "address": {
+    "street": "123/45",
+    "district": "เมือง",
+    "province": "อุบลราชธานี",
+    "postal_code": "34000"
+  }
+}
